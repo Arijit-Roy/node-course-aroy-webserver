@@ -5,9 +5,11 @@ const fs = require('fs');
 const port = process.env.PORT || 3000;
 
 var app = express();
+
+app.set('views', __dirname + '/views');
 app.set('view engine', hbs);
 
-hbs.registerPartials(__dirname + '/views_new/partials');
+hbs.registerPartials(__dirname + '/views/partials');
 hbs.registerHelper('getCurrentYear', () =>{
     return new Date().getFullYear();
 });
