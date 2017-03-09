@@ -6,10 +6,9 @@ const port = process.env.PORT || 3000;
 
 var app = express();
 
-app.set('views', __dirname + '/views');
+app.set(express.static(__dirname + '../views'));
 app.set('view engine', hbs);
-
-hbs.registerPartials(__dirname + '/views/partials');
+hbs.registerPartials(express.static(__dirname + '/views/partials'));
 hbs.registerHelper('getCurrentYear', () =>{
     return new Date().getFullYear();
 });
