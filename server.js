@@ -36,19 +36,17 @@ app.use((req, res, next)=>{
 //});
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', (request, response)=>{
-    // response.send('<h1>Hello Express</h1>');
-    response.send({
-        name:"Arijit", 
-        likes:[
-            "swimming", "trekking"
-        ]
-    })
-});
-
 app.get('/about', (request, response) =>{
     response.render('about.hbs', {
         pageTitle : "About Page", 
+    });
+});
+
+
+app.get('/', (req, res) => {
+    res.render('home.hbs', {
+        pageTitle : 'Home Page',
+        welcomeMsg : 'Welcome to my site'
     });
 });
 
